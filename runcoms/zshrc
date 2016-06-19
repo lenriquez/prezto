@@ -12,5 +12,18 @@ fi
 
 # Customize to your needs...
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PATH="$PATH:$HOME/.gem/ruby/2.0.0/bin"
+#export PATH="$PATH:$HOME/.gem/ruby/2.0.0/bin"
+
+# No share history between terminals
+unsetopt inc_append_history
+unsetopt share_history
+DISABLE_AUTO_TITLE=true
+#export TERM=vt100
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+alias chef="/opt/chefdk/bin/chef"
+alias load_rvm="[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && source \"$HOME/.rvm/scripts/rvm\"" # Load RVM into a shell session *as a function*
+
+alias test_locations="curl -X GET 'http://localhost:3000/api/v1/locations/search/suburb?name=new'"
+alias test_advert_s="curl -X GET 'http://localhost:3000/api/v1/adverts/search?query=restaurant'"
+alias test_autocomplete="curl -X GET 'http://localhost:3000/api/v1/adverts/autocomplete?query=mr'"
+alias postgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
